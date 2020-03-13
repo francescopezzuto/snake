@@ -82,11 +82,13 @@ class Game {
         return newGameButton;
     }
     mainMenu() {
+        this._gameSet = false;
         let title = new Label(this._gameLayer.canvas.width / 2 - 59, this._gameLayer.canvas.height / 2 - 60, 120, 120, 'SNAKE', 77);
         title.color = '#fff';
         this._uiLayer.elements = [title, this.generateNewGameButton()];
     }
     gameOver() {
+        this._gameSet = false;
         let gameoverLabel = new Label(this._gameLayer.canvas.width / 2 - 59, this._gameLayer.canvas.height / 2 - 60, 120, 120, 'GAME OVER', 77);
         gameoverLabel.color = '#fff';
         this._uiLayer.elements = [
