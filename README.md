@@ -2,10 +2,16 @@
 
 Snake game developed entirely with HTML5, CSS3 and TypeScript.
 
-# Commands
+![Alt Game screenshot](https://github.com/francescopezzuto/snake/raw/master/screenshot.png)
 
--   -   Move up: arrow up, w
--   -   Move down: arrow down, s
--   -   Move right: arrow right, d
--   -   Move left: arrow left, a
--   -   Pause: space bar
+## Commands
+
+-   **Move up**: arrow up, w
+-   **Move down**: arrow down, s
+-   **Move right**: arrow right, d
+-   **Move left**: arrow left, a
+-   **Pause**: space bar
+
+## License
+
+This project is [MIT licensed](https://github.com/francescopezzuto/snake/blob/master/LICENSE).
