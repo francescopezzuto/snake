@@ -4,7 +4,7 @@ Snake game developed entirely with HTML5, CSS3 and TypeScript for pc browser.
 
 Play it here: https://francescopezzuto.github.io/snake
 
-![Gameplay screenshot](https://github.com/francescopezzuto/snake/raw/master/screenshot.png)
+![Gameplay screenshot](https://github.com/francescopezzuto/snake/raw/master/img/screenshot.png)
 
 ## Commands
 
