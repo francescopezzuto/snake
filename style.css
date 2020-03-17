@@ -12,7 +12,13 @@ body {
 }
 
 .screen {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
     display: flex;
+    justify-content: -webkit-center;
+    justify-content: -moz-center;
     justify-content: center;
 }
 
@@ -20,14 +26,19 @@ body {
     position: relative;
     width: 495px;
     height: 495px;
-    float: left;
 }
 
 .commands {
     margin: 0;
-    margin-left: 372px;
+    margin-left: 375px;
     font-size: 27px;
     position: absolute;
+}
+
+@media (max-width: 992px) {
+    .commands {
+        display: none;
+    }
 }
 
 .commands .title {
