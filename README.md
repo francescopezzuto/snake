@@ -2,6 +2,8 @@
 
 Snake game developed entirely with HTML5, CSS3 and TypeScript for PC browser.
 
+Works best on Google Chrome.
+
 Play it here: https://francescopezzuto.github.io/snake
 
 ![Gameplay screenshot](https://github.com/francescopezzuto/snake/raw/master/img/screenshot.png)
