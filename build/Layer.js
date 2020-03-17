@@ -7,6 +7,12 @@
 class Layer {
     constructor(container, HTMLClass) {
         this.canvas = document.createElement('canvas');
+        if (!(this.canvas.getContext && this.canvas.getContext('2d'))) {
+            let ad = document.createElement('span');
+            ad.innerHTML = 'Your browser does not support HTML canvas.';
+            container.appendChild(ad);
+            throw new Error('Canvas not supported');
+        }
         this.canvas.id = Math.random()
             .toString(36)
             .substr(2, 9);
