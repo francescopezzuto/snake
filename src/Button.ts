@@ -34,7 +34,7 @@ class Button extends UIElement {
     private _events: { [key: string]: Function };
 
     /**
-     * Class contructor.
+     * Class constructor.
      * @param x number X coordinate
      * @param y number Y coordinate
      * @param width number Width

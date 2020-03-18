@@ -11,7 +11,7 @@
  */
 class Food extends GameElement {
     /**
-     * Class contructor.
+     * Class constructor.
      * @param widthLimit number Playground width
      * @param heightLimit number Playground height
      */

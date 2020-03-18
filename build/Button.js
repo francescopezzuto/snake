@@ -11,7 +11,7 @@
  */
 class Button extends UIElement {
     /**
-     * Class contructor.
+     * Class constructor.
      * @param x number X coordinate
      * @param y number Y coordinate
      * @param width number Width

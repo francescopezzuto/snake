@@ -15,7 +15,7 @@ class Food extends GameElement {
     private static OUTERCOLOR: string = 'black';
 
     /**
-     * Class contructor.
+     * Class constructor.
      * @param widthLimit number Playground width
      * @param heightLimit number Playground height
      */
