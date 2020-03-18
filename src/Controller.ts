@@ -5,6 +5,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+/**
+ * @class Controller
+ * Listen for keyboard event and transmits them to the game.
+ */
 class Controller {
     static readonly UP_KEY: string[] = ['ArrowUp', 'w', 'W'];
     static readonly RIGHT_KEY: string[] = ['ArrowRight', 'd', 'D'];
@@ -14,11 +18,19 @@ class Controller {
 
     private _game: Game;
 
+    /**
+     * Class constructor.
+     * @param game Game object
+     */
     constructor(game: Game) {
         this._game = game;
         document.onkeyup = event => this.keyboardDispatcher(event);
     }
 
+    /**
+     * Manages a keyboard event.
+     * @param event KeyboardEvent Keyboard event
+     */
     keyboardDispatcher(event: KeyboardEvent) {
         let keyPressed = event.key;
 

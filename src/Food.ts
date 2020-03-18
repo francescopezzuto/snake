@@ -5,10 +5,20 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+/**
+ * @class Food
+ * @extends GameElement
+ * Food element part of gameplay.
+ */
 class Food extends GameElement {
     private static INNERCOLOR: string = 'red';
     private static OUTERCOLOR: string = 'black';
 
+    /**
+     * Class contructor.
+     * @param widthLimit number Playground width
+     * @param heightLimit number Playground height
+     */
     constructor(widthLimit: number, heightLimit: number) {
         let x = Math.floor(Math.random() * widthLimit);
         let y = Math.floor(Math.random() * heightLimit);

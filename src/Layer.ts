@@ -5,6 +5,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+/**
+ * @class Layer
+ * Manages a canvas and the elements contained.
+ */
 class Layer {
     static readonly SCALE: number = 15;
 
@@ -20,7 +24,12 @@ class Layer {
         pressed: boolean;
     };
 
-    constructor(container: HTMLElement, HTMLClass: string) {
+    /**
+     * Class constructor.
+     * @param container HTMLElement Canvas container
+     * @param HTMLClass string Optional canvas classnames
+     */
+    constructor(container: HTMLElement, HTMLClass: string = '') {
         this.canvas = document.createElement('canvas');
 
         if (!(this.canvas.getContext && this.canvas.getContext('2d'))) {
@@ -42,6 +51,9 @@ class Layer {
         this.bindEvents();
     }
 
+    /**
+     * Bind mouse events into the canvas.
+     */
     private bindEvents() {
         this.mouseReference = {
             x: 0,
@@ -62,14 +74,25 @@ class Layer {
         });
     }
 
+    /**
+     * Return the playground width.
+     * @returns number Playground width
+     */
     get playgroundWidth(): number {
         return Math.floor(this.canvas.width / Layer.SCALE);
     }
 
+    /**
+     * Return the playground height.
+     * @returns number Playground height
+     */
     get playgroundHeight(): number {
         return Math.floor(this.canvas.height / Layer.SCALE);
     }
 
+    /**
+     * Clear the canvas.
+     */
     clearPlayground() {
         if (this.fillColor) {
             this.ctx.fillStyle = this.fillColor;
@@ -83,12 +106,16 @@ class Layer {
         this.ctx.lineWidth = 1;
     }
 
-    clear() {}
-
+    /**
+     * Update canvass elements.
+     */
     update() {
         this.elements.forEach(element => element.update(this.mouseReference));
     }
 
+    /**
+     * Render canvas elements.
+     */
     render() {
         this.clearPlayground();
         this.elements.forEach(element => element.render(this.ctx));

@@ -5,11 +5,25 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+/**
+ * @class Label
+ * @extends UIElement
+ * Label element part of canvas UI.
+ */
 class Label extends UIElement {
     private _text: string;
     private _fontSize: number;
     private _color = '#000';
 
+    /**
+     * Class constructor.
+     * @param x number X coordinate
+     * @param y number Y coordinate
+     * @param width number Width
+     * @param height number Heigth
+     * @param text string Text
+     * @param fontSize string Font size
+     */
     constructor(
         x: number,
         y: number,
@@ -23,16 +37,31 @@ class Label extends UIElement {
         this._fontSize = fontSize;
     }
 
+    /**
+     * Update label color.
+     * @param value string New color
+     */
     set color(value: string) {
         this._color = value;
     }
 
+    /**
+     * Update label text.
+     * @param value string New text
+     */
     set text(value: string) {
         this._text = value;
     }
 
+    /**
+     * Update method implementation.
+     */
     update() {}
 
+    /**
+     * Render label.
+     * @param ctx CanvasRenderingContext2D Canvas context
+     */
     render(ctx: CanvasRenderingContext2D) {
         ctx.font = this._fontSize + 'px ' + UIElement.FONT_FAMILY;
 

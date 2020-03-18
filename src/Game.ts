@@ -5,6 +5,10 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+/**
+ * @class Game
+ * Main class.
+ */
 class Game {
     private _gameContainer: HTMLElement;
     private _gameLayer: Layer;
@@ -25,6 +29,10 @@ class Game {
     private _points: number;
     private _gamePaused: boolean;
 
+    /**
+     * Class constructor.
+     * @param gameContainer HTMLElement HTML element that will contain the game
+     */
     constructor(gameContainer: HTMLElement) {
         this._gameContainer = gameContainer;
 
@@ -37,6 +45,9 @@ class Game {
         this.initUILayer();
     }
 
+    /**
+     * Initialize UI layer.
+     */
     initUILayer() {
         let animate = () => {
             requestAnimationFrame(animate);
@@ -47,6 +58,10 @@ class Game {
         requestAnimationFrame(animate);
     }
 
+    /**
+     * Update snake direction.
+     * @param newDirection string Direction ("up", "right", "down", "left")
+     */
     set snakeDirection(newDirection: 'up' | 'right' | 'down' | 'left') {
         if (this._changingDirection) return;
         if (this._gamePaused) return;
@@ -70,6 +85,9 @@ class Game {
         }
     }
 
+    /**
+     * Generate food in a random position of game playground.
+     */
     generateFood() {
         let food = new Food(
             this._gameLayer.playgroundWidth,
@@ -84,6 +102,9 @@ class Game {
         return food;
     }
 
+    /**
+     * Create a "new game" button.
+     */
     generateNewGameButton() {
         let newGameButton = new Button(
             this._gameLayer.canvas.width / 2 - 70,
@@ -126,6 +147,9 @@ class Game {
         return newGameButton;
     }
 
+    /**
+     * Render the main menu screen.
+     */
     mainMenu() {
         this._gameSet = false;
 
@@ -143,6 +167,9 @@ class Game {
         this._uiLayer.elements = [title, this.generateNewGameButton()];
     }
 
+    /**
+     * Render the game over screen.
+     */
     gameOver() {
         this._gameSet = false;
 
@@ -164,6 +191,9 @@ class Game {
         ];
     }
 
+    /**
+     * Create a new game.
+     */
     newGame() {
         this._gameSet = true;
 
@@ -227,6 +257,9 @@ class Game {
         play = requestAnimationFrame(animate);
     }
 
+    /**
+     * Pause current game.
+     */
     pauseGame() {
         if (!this._gameSet) return;
 

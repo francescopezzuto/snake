@@ -4,8 +4,17 @@
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
+/**
+ * @class Layer
+ * Manages a canvas and the elements contained.
+ */
 class Layer {
-    constructor(container, HTMLClass) {
+    /**
+     * Class constructor.
+     * @param container HTMLElement Canvas container
+     * @param HTMLClass string Optional canvas classnames
+     */
+    constructor(container, HTMLClass = '') {
         this.canvas = document.createElement('canvas');
         if (!(this.canvas.getContext && this.canvas.getContext('2d'))) {
             let ad = document.createElement('span');
@@ -24,6 +33,9 @@ class Layer {
         this.ctx.imageSmoothingEnabled = false;
         this.bindEvents();
     }
+    /**
+     * Bind mouse events into the canvas.
+     */
     bindEvents() {
         this.mouseReference = {
             x: 0,
@@ -41,12 +53,23 @@ class Layer {
             this.mouseReference.pressed = false;
         });
     }
+    /**
+     * Return the playground width.
+     * @returns number Playground width
+     */
     get playgroundWidth() {
         return Math.floor(this.canvas.width / Layer.SCALE);
     }
+    /**
+     * Return the playground height.
+     * @returns number Playground height
+     */
     get playgroundHeight() {
         return Math.floor(this.canvas.height / Layer.SCALE);
     }
+    /**
+     * Clear the canvas.
+     */
     clearPlayground() {
         if (this.fillColor) {
             this.ctx.fillStyle = this.fillColor;
@@ -60,10 +83,15 @@ class Layer {
         this.ctx.strokeRect(0, 0, this.canvas.width, this.canvas.height);
         this.ctx.lineWidth = 1;
     }
-    clear() { }
+    /**
+     * Update canvass elements.
+     */
     update() {
         this.elements.forEach(element => element.update(this.mouseReference));
     }
+    /**
+     * Render canvas elements.
+     */
     render() {
         this.clearPlayground();
         this.elements.forEach(element => element.render(this.ctx));

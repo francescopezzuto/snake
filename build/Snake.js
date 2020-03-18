@@ -4,7 +4,14 @@
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
+/**
+ * @class Snake
+ * Snake controlled by the player.
+ */
 class Snake {
+    /**
+     * Class constructor.
+     */
     constructor() {
         this._body = [
             new SnakeBodyPart(15, 15, Snake.INNERCOLOR, Snake.BORDERCOLOR),
@@ -14,9 +21,18 @@ class Snake {
             new SnakeBodyPart(11, 15, Snake.INNERCOLOR, Snake.BORDERCOLOR)
         ];
     }
+    /**
+     * Return snake's body.
+     * @returns SankeBodyPart[] Snake's body
+     */
     get body() {
         return this._body;
     }
+    /**
+     * Move snake.
+     * @param direction string Direction to move on ("up", "right", "down", "left")
+     * @param grow boolean True if snake has to grow, false otherwise
+     */
     move(direction, grow) {
         let x = this._body[0].x;
         let y = this._body[0].y;
@@ -41,6 +57,11 @@ class Snake {
             this._body.pop();
         }
     }
+    /**
+     * Check if snake's head has overflow on playground dimensions.
+     * @param widthLimit number Playground width
+     * @param heightLimit number Playground height
+     */
     headOverflow(widthLimit, heightLimit) {
         let overflows = false;
         let newX = this.body[0].x;
@@ -66,12 +87,26 @@ class Snake {
             this._body.unshift(new SnakeBodyPart(newX, newY, Snake.INNERCOLOR, Snake.BORDERCOLOR));
         }
     }
+    /**
+     * Check if a GameElement object is in snake's body.
+     * @param ge GameElement GameElement object to check
+     * @returns boolean True if GameElement object is in snake's position
+     */
     isIn(ge) {
         return undefined !== this._body.find(part => part.equal(ge));
     }
+    /**
+     * Check if snake has eaten.
+     * @param ge GameElement The GameElement object to check if eaten
+     * @returns boolean True if snake ate the GameElement object, false otherwise
+     */
     ate(ge) {
         return this._body[0].equal(ge);
     }
+    /**
+     * Check if snake ate himself (has collided on its own body)
+     * @returns boolean True if snake ate himself, false otherwise
+     */
     ateItself() {
         return (undefined !==
             this._body.find((part, index) => {

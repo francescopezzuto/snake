@@ -4,7 +4,15 @@
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
+/**
+ * @class Game
+ * Main class.
+ */
 class Game {
+    /**
+     * Class constructor.
+     * @param gameContainer HTMLElement HTML element that will contain the game
+     */
     constructor(gameContainer) {
         this.mouseReference = {
             x: 0,
@@ -18,6 +26,9 @@ class Game {
         this._gameLayer.fillColor = '#4c4f5a';
         this.initUILayer();
     }
+    /**
+     * Initialize UI layer.
+     */
     initUILayer() {
         let animate = () => {
             requestAnimationFrame(animate);
@@ -26,6 +37,10 @@ class Game {
         };
         requestAnimationFrame(animate);
     }
+    /**
+     * Update snake direction.
+     * @param newDirection string Direction ("up", "right", "down", "left")
+     */
     set snakeDirection(newDirection) {
         if (this._changingDirection)
             return;
@@ -47,6 +62,9 @@ class Game {
             this._snakeDirection = 'down';
         }
     }
+    /**
+     * Generate food in a random position of game playground.
+     */
     generateFood() {
         let food = new Food(this._gameLayer.playgroundWidth, this._gameLayer.playgroundHeight);
         while (this._snake.isIn(food)) {
@@ -54,6 +72,9 @@ class Game {
         }
         return food;
     }
+    /**
+     * Create a "new game" button.
+     */
     generateNewGameButton() {
         let newGameButton = new Button(this._gameLayer.canvas.width / 2 - 70, this._gameLayer.canvas.height / 2 + 23, 140, 46, 'New game', 37);
         newGameButton.setColor('default', {
@@ -81,12 +102,18 @@ class Game {
         });
         return newGameButton;
     }
+    /**
+     * Render the main menu screen.
+     */
     mainMenu() {
         this._gameSet = false;
         let title = new Label(this._gameLayer.canvas.width / 2 - 59, this._gameLayer.canvas.height / 2 - 60, 120, 120, 'SNAKE', 77);
         title.color = '#fff';
         this._uiLayer.elements = [title, this.generateNewGameButton()];
     }
+    /**
+     * Render the game over screen.
+     */
     gameOver() {
         this._gameSet = false;
         let gameoverLabel = new Label(this._gameLayer.canvas.width / 2 - 59, this._gameLayer.canvas.height / 2 - 60, 120, 120, 'GAME OVER', 77);
@@ -97,6 +124,9 @@ class Game {
             this.generateNewGameButton()
         ];
     }
+    /**
+     * Create a new game.
+     */
     newGame() {
         this._gameSet = true;
         this._snake = new Snake();
@@ -140,6 +170,9 @@ class Game {
         };
         play = requestAnimationFrame(animate);
     }
+    /**
+     * Pause current game.
+     */
     pauseGame() {
         if (!this._gameSet)
             return;

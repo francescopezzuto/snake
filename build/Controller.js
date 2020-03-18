@@ -4,11 +4,23 @@
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
  */
+/**
+ * @class Controller
+ * Listen for keyboard event and transmits them to the game.
+ */
 class Controller {
+    /**
+     * Class constructor.
+     * @param game Game object
+     */
     constructor(game) {
         this._game = game;
         document.onkeyup = event => this.keyboardDispatcher(event);
     }
+    /**
+     * Manages a keyboard event.
+     * @param event KeyboardEvent Keyboard event
+     */
     keyboardDispatcher(event) {
         let keyPressed = event.key;
         if (Controller.UP_KEY.indexOf(keyPressed) !== -1) {

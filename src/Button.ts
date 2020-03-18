@@ -5,6 +5,11 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+/**
+ * @class Button
+ * @extends UIElement
+ * Button element part of canvas UI.
+ */
 class Button extends UIElement {
     private _text: string;
     private _fontSize: number;
@@ -28,6 +33,15 @@ class Button extends UIElement {
 
     private _events: { [key: string]: Function };
 
+    /**
+     * Class contructor.
+     * @param x number X coordinate
+     * @param y number Y coordinate
+     * @param width number Width
+     * @param height number Height
+     * @param text string Text
+     * @param fontSize number Font size
+     */
     constructor(
         x: number,
         y: number,
@@ -46,15 +60,29 @@ class Button extends UIElement {
         this._events = {};
     }
 
+    /**
+     * Set a color element associated by a button status.
+     * @param type string Button status ("default", "hover", "active")
+     * @param color object Color object: { text: string, border: string }
+     */
     setColor(type: string, { text = '#fff', border = '#000' }) {
         this._colors[type].text = text;
         this._colors[type].border = border;
     }
 
+    /**
+     * Set an event to listen to.
+     * @param event string Event name
+     * @param callback function Callback function
+     */
     on(event: string, callback: Function) {
         this._events[event] = callback;
     }
 
+    /**
+     * Update button status.
+     * @param mouseReference object Mouse status: { x: number, y: number, pressed: boolean }
+     */
     update(mouseReference: { x: number; y: number; pressed: boolean }) {
         if (
             mouseReference.x >= this._x &&
@@ -89,6 +117,10 @@ class Button extends UIElement {
         }
     }
 
+    /**
+     * Render button.
+     * @param ctx CanvasRenderingContext2D Canvas context
+     */
     render(ctx: CanvasRenderingContext2D) {
         ctx.font = this._fontSize + 'px ' + UIElement.FONT_FAMILY;
 
