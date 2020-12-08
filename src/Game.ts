@@ -14,12 +14,6 @@ class Game {
     private _gameLayer: Layer;
     private _uiLayer: Layer;
 
-    private mouseReference = {
-        x: 0,
-        y: 0,
-        pressed: false
-    };
-
     private _gameSet: boolean;
     private _snake: Snake;
     private _snakeDirection: 'up' | 'right' | 'down' | 'left';

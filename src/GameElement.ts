@@ -11,7 +11,7 @@
  * A game element part of canvas.
  */
 class GameElement extends LayerElement {
-    static readonly DIMENSION: number = 15;
+    static readonly DIMENSION: number = 20;
 
     private _innerColor: string;
     private _outerColor: string;

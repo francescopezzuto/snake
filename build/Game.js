@@ -14,11 +14,6 @@ class Game {
      * @param gameContainer HTMLElement HTML element that will contain the game
      */
     constructor(gameContainer) {
-        this.mouseReference = {
-            x: 0,
-            y: 0,
-            pressed: false
-        };
         this._gameContainer = gameContainer;
         this._gameLayer = new Layer(gameContainer, 'playground');
         this._uiLayer = new Layer(gameContainer, 'ui');

@@ -58,4 +58,4 @@ class GameElement extends LayerElement {
         ctx.strokeRect(this._x * GameElement.DIMENSION, this._y * GameElement.DIMENSION, GameElement.DIMENSION, GameElement.DIMENSION);
     }
 }
-GameElement.DIMENSION = 15;
+GameElement.DIMENSION = 20;

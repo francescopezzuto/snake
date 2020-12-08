@@ -10,7 +10,7 @@
  * Manages a canvas and the elements contained.
  */
 class Layer {
-    static readonly SCALE: number = 15;
+    static readonly SCALE: number = 20;
 
     canvas: HTMLCanvasElement;
     ctx: CanvasRenderingContext2D;
@@ -43,8 +43,8 @@ class Layer {
             .toString(36)
             .substr(2, 9);
         this.canvas.className = HTMLClass;
-        this.canvas.width = 495;
-        this.canvas.height = 495;
+        this.canvas.width = 600;
+        this.canvas.height = 600;
         container.appendChild(this.canvas);
         this.ctx = this.canvas.getContext('2d');
         this.ctx.imageSmoothingEnabled = false;
