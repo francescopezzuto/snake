@@ -1,6 +1,6 @@
 # Snake
 
-Snake game developed entirely with HTML5, CSS3 and TypeScript for PC browser.
+Snake game developed entirely with HTML5, CSS3 and TypeScript (v3.8.2) for PC browser.
 
 Play it here: https://francescopezzuto.github.io/snake
 
